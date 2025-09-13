@@ -6,7 +6,7 @@ DAT200 CA4 assignment developed for Kongsberg Satellite Services (KSAT) to class
 
 This project was developed for Kongsberg Satellite Services (KSAT) to support their expansion into deep-space monitoring capabilities. The goal is to classify astronomical objects into three categories:
 - Galaxies (class 0)
-- Quasars/QSO (class 1) 
+- Quasars/QSO (class 1)
 - Stars (class 2)
 
 The dataset contains 100,000 observations with photometric measurements across five filter bands (u, g, r, i, z), positional coordinates, redshift measurements, and various metadata from advanced space monitoring systems.
@@ -17,7 +17,7 @@ The dataset contains 100,000 observations with photometric measurements across f
 - Competition: [DAT 200 CA 4 2025](https://www.kaggle.com/competitions/dat-200-ca-4-2025/overview)
 - Evaluation metric: F1-macro score
 
-## Model Performance
+## Kaggle F1-Macro Score
 
 | Model | F1-Macro Score |
 |-------|---------------|
@@ -28,7 +28,7 @@ The dataset contains 100,000 observations with photometric measurements across f
 ## Models Implemented
 
 1. **Random Forest Classifier** - Best performing model
-2. **Logistic Regression** - Fast baseline approach  
+2. **Logistic Regression** - Fast baseline approach
 3. **Support Vector Machine** - With PCA dimensionality reduction
 
 ## Key Features
