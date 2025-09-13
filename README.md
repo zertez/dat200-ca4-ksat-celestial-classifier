@@ -1,15 +1,15 @@
 # Celestial Object Classification
 
-DAT200 CA4 assignment developed for Kongsberg Satellite Services (KSAT) to classify celestial objects using machine learning techniques.
+Academic assignment (DAT200 CA4) using data from Kongsberg Satellite Services (KSAT) to learn machine learning classification techniques with more than two classes.
 
 ## Overview
 
-This project was developed for Kongsberg Satellite Services (KSAT) to support their expansion into deep-space monitoring capabilities. The goal is to classify astronomical objects into three categories:
+This academic project uses data provided by Kongsberg Satellite Services (KSAT) to learn machine learning techniques for classifying astronomical objects into three categories:
 - Galaxies (class 0)
 - Quasars/QSO (class 1)
 - Stars (class 2)
 
-The dataset contains 100,000 observations with photometric measurements across five filter bands (u, g, r, i, z), positional coordinates, redshift measurements, and various metadata from advanced space monitoring systems.
+The dataset contains 100,000 observations with photometric measurements across five filter bands (u, g, r, i, z), positional coordinates, redshift measurements, and various metadata provided by KSAT for educational purposes. Where 20% of the data is reserved for testing purposes.
 
 ## Competition Results
 
@@ -41,7 +41,7 @@ The dataset contains 100,000 observations with photometric measurements across f
 
 ## Dataset
 
-- Total observations: 100,000 (from KSAT's space monitoring systems)
+- Total observations: 100,000 (provided by KSAT for educational use)
 - Training set: ~80,000 observations
 - Features: 5 photometric bands (u, g, r, i, z), redshift, positional coordinates, and metadata
 - Class distribution: 60% galaxies, 25% quasars, 15% stars
@@ -52,6 +52,7 @@ The dataset contains 100,000 observations with photometric measurements across f
 - `CA4_Astronomy_Classification.py` - Main analysis and model training
 - `assets/` - Training and test data
 - `results/` - Model predictions and submissions
+- `models_testing/` - Files for fast testing and evaluation of multiple models and feature engineering
 
 ## Team
 
