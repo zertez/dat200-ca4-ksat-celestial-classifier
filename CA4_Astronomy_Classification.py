@@ -31,7 +31,7 @@ from sklearn import (
 )
 from sklearn import (
     metrics as met,
-
+)
 from sklearn import (
     model_selection as msel,
 )
@@ -54,20 +54,12 @@ plt.rcParams["axes.spines.left"] = False
 plt.rcParams["axes.spines.right"] = False
 plt.rcParams["axes.spines.top"] = False
 
-# Set working directory
-if "CA4" in os.getcwd():
-    os.chdir("..")  # Go up one level if we're in CA3
-
-print(f"Working directory now: {os.getcwd()}")
-
-# Load data
-train_path = os.path.join("CA4", "assets", "train.csv")
-test_path = os.path.join("CA4", "assets", "test.csv")
+## %%
 
 # Load data
 # 1. Load data
-train_df = pd.read_csv(train_path)
-test_df = pd.read_csv(test_path)
+train_df = pd.read_csv("assets/train.csv")
+test_df = pd.read_csv("assets/test.csv")
 
 # %% [markdown]
 # # Data inspection and cleaning
@@ -144,9 +136,7 @@ print(train_df.describe())
 
 
 # %% Checking class distribution
-print(
-    train_df["class"].value_counts(normalize=True).mul(100).round(2).astype(str) + " %"
-)
+print(train_df["class"].value_counts(normalize=True).mul(100).round(2).astype(str) + " %")
 
 
 # %% [markdown]
@@ -256,9 +246,7 @@ plt.show()
 # ## Feature Correlation Matrix
 
 # %% Corr matrix for all classes
-samples = [
-    plot_df_sample[plot_df_sample["class_labels"] == cls][features] for cls in classes
-]
+samples = [plot_df_sample[plot_df_sample["class_labels"] == cls][features] for cls in classes]
 
 # Set up the figure and axes
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
@@ -330,9 +318,9 @@ def feature_engineering(df):
     df_features["redshift_u"] = df_features["redshift"] * df_features["u"]
 
     # We try to create a brightness feature here to
-    df_features["spectral_contrast"] = df_features[["u-g", "g-r", "i-r", "i-z"]].max(
-        axis=1
-    ) - df_features[["u-g", "g-r", "i-r", "i-z"]].min(axis=1)
+    df_features["spectral_contrast"] = df_features[["u-g", "g-r", "i-r", "i-z"]].max(axis=1) - df_features[
+        ["u-g", "g-r", "i-r", "i-z"]
+    ].min(axis=1)
 
     return df_features
 
@@ -380,9 +368,7 @@ X = train_df.drop(columns=["class", "class_labels"])
 y = train_df["class"]
 
 # Splitting the data into train and test data with a 60/40 split
-X_train, X_test, y_train, y_test = msel.train_test_split(
-    X, y, test_size=0.4, random_state=42, stratify=y
-)
+X_train, X_test, y_train, y_test = msel.train_test_split(X, y, test_size=0.4, random_state=42, stratify=y)
 
 print(X_train)
 
@@ -525,9 +511,7 @@ print(f"Saved rf submission to {file_path}")
 
 # %%
 # Splitting the data into train and test data with a 60/40 split
-X_train, X_test, y_train, y_test = msel.train_test_split(
-    X, y, test_size=0.4, random_state=42, stratify=y
-)
+X_train, X_test, y_train, y_test = msel.train_test_split(X, y, test_size=0.4, random_state=42, stratify=y)
 
 # %%
 # %% Pipeline setup for logreg without
@@ -622,9 +606,7 @@ final_logreg = LogisticRegression(
 )
 
 # Create the final pipeline with scaling
-final_logreg_pipe = pipe.Pipeline(
-    [("scaler", min_max_scaler), ("pca", pca), ("logreg", final_logreg)]
-)
+final_logreg_pipe = pipe.Pipeline([("scaler", min_max_scaler), ("pca", pca), ("logreg", final_logreg)])
 
 # Train the pipeline on unscaled data - pipeline handles scaling internally
 final_logreg_pipe.fit(X_full, y_full)
@@ -743,9 +725,7 @@ final_svm = svm.SVC(
 )
 
 # Create the final pipeline with scaling and PCA
-final_svm_pipe = pipe.Pipeline(
-    [("scaler", std_scaler), ("pca", pca), ("svm", final_svm)]
-)
+final_svm_pipe = pipe.Pipeline([("scaler", std_scaler), ("pca", pca), ("svm", final_svm)])
 
 # Train the pipeline on unscaled data - pipeline handles scaling internally
 final_svm_pipe.fit(X_full, y_full)
