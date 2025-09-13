@@ -14,9 +14,16 @@ The dataset contains 100,000 observations with photometric measurements across f
 ## Competition Results
 
 - **2nd place out of 59 teams** on Kaggle
-- Best model F1-macro score: 97.6% (Random Forest)
 - Competition: [DAT 200 CA 4 2025](https://www.kaggle.com/competitions/dat-200-ca-4-2025/overview)
 - Evaluation metric: F1-macro score
+
+## Model Performance
+
+| Model | F1-Macro Score |
+|-------|---------------|
+| Random Forest | 0.976 |
+| Support Vector Machine | 0.966 |
+| Logistic Regression | 0.958 |
 
 ## Models Implemented
 
